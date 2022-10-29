@@ -1,0 +1,339 @@
+body{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+main{
+    height: 400px;
+    width: 650px;
+    background-color: antiquewhite;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.urna{
+    background-color: #fff;
+    width: 600px;
+    height: 350px;
+    margin: 0 auto;
+    padding: 10px 5px;
+    border: 2px solid #000;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/*Lado esquerdo*/
+.visor{
+    width: 360px;
+    height: 320px;
+    background-color: aliceblue;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*parte textos visor*/
+.visor-ladoEsquerdo{
+    width: 235px;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.visor-ladoEsquerdoSuperior{
+    display: flex;
+}
+
+.textosFixos span{
+    font-size: 10.5px;
+}
+
+.cargo{
+    margin-left: 70px;
+}
+
+.camposNumeros{
+    display: flex;
+    height: 155px;
+}
+
+.n1-pisca{
+    animation: piscar .5s ease-in-out infinite;
+    width: 50px;
+    height: 70px;
+    border: 1px solid #000;
+    margin: 80px 1px 0 0;
+    text-align: center;
+    font-size: 65px;
+}
+
+.n1-para{
+    animation: none;
+    width: 50px;
+    height: 70px;
+    border: 1px solid #000;
+    margin: 80px 1px 0 0;
+    text-align: center;
+    font-size: 65px;
+}
+
+.n2-pisca{
+    animation: piscar .5s ease-in-out infinite;
+    width: 50px;
+    height: 70px;
+    border: 1px solid #000;
+    margin: 80px 1px 0 0;
+    text-align: center;
+    font-size: 65px;
+}
+
+.n2-para{
+    animation: none;
+    width: 50px;
+    height: 70px;
+    border: 1px solid #000;
+    margin: 80px 1px 0 0;
+    text-align: center;
+    font-size: 65px;
+}
+
+.campo{
+    width: 50px;
+    height: 70px;
+    border: 1px solid #000;
+    margin: 80px 1px 0 0;
+    text-align: center;
+    font-size: 65px;
+}
+
+.linha{
+    display: none;
+}
+
+/*apenas as fotos do visor*/
+.visor-ladoDireito{
+    width: 109px;
+    margin-right: 2px;
+}
+
+.fotoCandidato{
+    width: 90px;
+    height: 112px;
+    border: 1px solid #000;
+    margin: 3px 13px;
+}
+
+.fotoCandidato img{
+    width: 90px;
+    height: 112px;
+    display: none;
+}
+
+.fotoVice{
+    width: 70px;
+    height: 90px;
+    border: 1px solid #000;
+    margin-left: 32.5px;
+}
+
+.fotoVice img{
+    width: 70px;
+    height: 90px;
+    display: none;
+}
+
+.infos{
+    width: 350px;
+}
+
+/*Lado direito - parte dos botões*/
+.logo{
+    width: 228px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #000;
+}
+
+.logo span{
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.botoes{
+    background-color: #222;
+    height: 300px;
+    margin-top: 5px;
+}
+
+.btn-lista{
+    padding: 6px;
+}
+
+.btn{
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #222;
+}
+
+.btn-op{
+    width: 70px;
+    height: 30px;
+    font-size: 11px;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+.btn-opcoes{
+    display: flex;
+}
+
+.corrige{
+    background-color: #C55F2E;
+}
+
+.corrige:hover{
+    background-color: #c55e2e8f;
+}
+
+.confirma{
+    background-color: #177B49;
+}
+
+.confirma:hover{
+    background-color: #177b4977;
+}
+
+.branco:hover{
+    background-color: rgba(255, 255, 255, 0.534);
+}
+
+/*Menu auxiliar - parte de baixo*/
+.infos-apoio{
+    margin: 10px;
+}
+
+.ver-candidatos{
+    background-color: dodgerblue;
+    border-radius: 10px;
+    border: #000 1px solid;
+    color: #fff;
+    height: 25px;
+    cursor: pointer;
+}
+
+.ver-candidatos:hover{
+    background-color: rgba(30, 143, 255, 0.842);
+}
+
+/*Informações dos candidatos disponíveis*/
+#retornar-urna{
+    background-image: linear-gradient(to top, white, red, red, white);
+    border: 1px solid gray;
+    width: 20px;
+    border-radius: 3px;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+}
+
+#painelCandidatos{
+    position: relative;
+    display: none;
+}
+
+.painelCandidatos{
+    display: block;
+    margin: 0 auto;
+}
+
+.card-candidato{
+    margin-bottom: 30px;
+    background-color: gray;
+    height: 100px;
+    width: 350px;
+    display: flex;
+    color: #fff;
+    font-size: 15px;
+}
+
+.info-card{
+    text-align: left;
+}
+
+.foto-card{
+    width: 60px;
+    padding: 6px;
+}
+
+/*Tela de finalização e mostrar resultados*/
+#resultado-final{
+    display: none;
+}
+
+.visaoCandidatosFinal{
+    display: flex;
+}
+
+.fotosFinalizar{
+    border-radius: 80%;
+}
+
+/*Dados vencedor*/
+.fotoVencedor{
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+}
+
+.dadosVencedor{
+    margin: 50px 0 0 30px;
+    text-align: left;
+}
+
+.eleito{
+    margin-top: 70px;
+    color: aqua;
+    font-size: 50px;
+    animation: piscar .9s ease-in-out infinite;
+}
+
+/*Dados derrotado*/
+.fotoDerrotado{
+    width: 70px;
+    height: 70px;
+    margin-top: 40px;
+}
+
+.dadosDerrotado{
+    text-align: left;
+    margin-left: 53px;
+}
+
+/*Barra de evolução*/
+.container-barraEvolucao{
+    display: flex;
+}
+
+.barraEvolucao{
+    color: rgb(0, 0, 0);
+    height: 5px;
+    width: 30px;
+}
+/*Animações*/
+@keyframes piscar{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

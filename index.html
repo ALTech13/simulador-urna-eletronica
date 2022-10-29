@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./res/images/logos/logo-simbolo-ico.ico" type="image/x-icon">
+    <title>Simulador de urna eletrônica</title>
+    <link rel="stylesheet" href="./res/styles/style.css">
+    <script src="./res/scripts/urna.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simulador de urna eletrônica</h1>
+        </header>
+        <main id="principal">
+            <section class="urna-container"> <!--Essa section serve como um pai para toda a parte visual da urna-->
+                <section class="urna"  id="urna">
+                    <section class="visor">
+                        <section class="visor-ladoEsquerdo">
+                            <div class="visor-ladoEsquerdoSuperior">
+                                <div class="textosFixos">
+                                    <p>VOTO PARA</p>
+                                    <p class="cargo">Presidente</p>
+                                    <p>Número</p>
+                                    <p>Nome: <span id="nome"></span></p>
+                                    <p>Partido: <span id="partido"></span></p>
+                                    <p>Vice-presidente: <span id="vice"></span></p>
+                                </div>
+                    
+                                <div class="camposNumeros">
+                                    <div class="campo n1-pisca" id="n1"></div>
+                                    <div class="campo" id="n2"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="infos">
+                                <hr class="linha">
+                                <p id="info" style="display: none;">APERTE: <br> <b>LARANJA:</b> Para corrigir | <b>VERDE:</b> Para confirmar</p>
+                            </div>
+                            
+                        </section>
+                        
+                        <section class="visor-ladoDireito">
+                            <div class="fotoCandidato">
+                                <img src="" alt="" id="fotoPresidente">
+                            </div>
+                            <div class="fotoVice">
+                                <img src="" alt="" id="fotoVice">
+                            </div>
+                        </section>
+                        
+                    </section>
+                    
+                    <section class="comandos">
+                        <section class="logo">
+                            <img src="./res/images/logos/logo-simbolo-png.png" alt="Logo do desenvolvedor do projeto">
+                            <span>Simulador de urna eletrônica</span>
+                        </section>
+                        <section class="botoes">
+                            <div class="btn-lista">
+                                <input type="button" value="1" class="btn" onclick="um()">
+                                <input type="button" value="2" class="btn" onclick="dois()">
+                                <input type="button" value="3" class="btn" onclick="tres()">
+                            </div>
+                            <div class="btn-lista">
+                                <input type="button" value="4" class="btn" onclick="quatro()">
+                                <input type="button" value="5" class="btn" onclick="cinco()">
+                                <input type="button" value="6" class="btn" onclick="seis()">
+                            </div>
+                            <div class="btn-lista">
+                                <input type="button" value="7" class="btn" onclick="sete()">
+                                <input type="button" value="8" class="btn" onclick="oito()">
+                                <input type="button" value="9" class="btn" onclick="nove()">
+                            </div>
+                            <div class="btn-lista">
+                                <input type="button" value="0" class="btn" onclick="zero()">
+                            </div>
+                    
+                            <div class="btn-lista btn-opcoes">
+                                <input type="button" value="BRANCO" class="btn-op branco" onclick="branco()">
+                                <input type="button" value="CORRIGE" class="btn-op corrige" onclick = "corrige()">
+                                <input type="button" value="CONFIRMA" class="btn-op confirma" onclick="confirma()">
+                            </div>
+                        </section>
+                    </section>
+                </section>
+
+                <section id="painelCandidatos" class="urna">
+                    <span id="retornar-urna" title="fechar" onclick="retornarUrna()">X</span>
+                    <h2>Canditados válidos para esta simulação</h2>
+                    <p>*Em ordem alfabetica</p>
+                    
+                    <div class="card">
+                        <div class="card-candidato" id="card-candidato-1" onmouseenter="revelarInformacoesCand1()">
+                            <img src="./res/images/fotosCandidatos/partido1/deodoro-da-fonseca.jpg" alt="Candidato 1" class="foto-card">
+                            <div class="info-card">
+                                <p>Nome: Deodoro da Fonseca</p>
+                                <p>Partido: PPP</p>
+                                <p>Número: 22</p>
+                            </div>
+                        </div>
+                        <div class="card-candidato" id="card-candidato-1-info" style="overflow-y:scroll; display: none;" onmouseout="retornarInformacoesCand1()">
+                            <p>
+                                Manuel Deodoro da Fonseca, Após cursar artilharia na Escola Militar do Rio de Janeiro entre 1843 e 1847, participou de algumas campanhas militares durante o Império, dentre as quais se destacam a Revolução Praieira, o cerco de Montevidéu e a Guerra do Paraguai. 
+                                <a href="https://pt.wikipedia.org/wiki/Deodoro_da_Fonseca" target="_blank">Saiba mais</a>
+                            </p>
+                        </div>
+
+                        <div class="card-candidato" id="card-candidato-2" onmouseenter="revelarInformacoesCand2()">
+                            <img src="./res/images/fotosCandidatos/partido2/prudente-de-morais.jpg" alt="Candidato 2" class="foto-card">
+                            <div class="info-card">
+                                <p>Nome: Prudente de Morais</p>
+                                <p>Partido: PRF</p>
+                                <p>Número: 13</p>
+                            </div>
+                        </div>
+                        <div class="card-candidato" id="card-candidato-2-info" style="overflow-y:scroll; display: none;" onmouseout="retornarInformacoesCand2()">
+                            <p>
+                                Prudente José de Morais Barros, nasceu no dia 4 de outubro de 1841, nos arredores da cidade paulista de Itu, no distrito do Varejão, atualmente área pertencente a Mairinque, na região do bairro Dona Catarina (que leva o nome de sua mãe em homenagem), sendo descendente dos primeiros colonizadores de São Paulo. Seus pais eram José Marcelino de Barros e Catarina Maria de Morais. Em 1846, com cerca de cinco anos de idade, Prudente perdeu o pai, que era tropeiro que fazia a rota Santos-Itu, assassinado por um escravo.
+                                <a href="https://pt.wikipedia.org/wiki/Prudente_de_Morais" target="_blank">Saiba mais</a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            
+            <section class="infos-apoio" id="apoio">
+                <input type="button" value="Ver candidatos" class="ver-candidatos" onclick="verCadidatos()">
+                <input type="button" value="Finalizar votação" class="ver-candidatos" onclick="finalizarVotacao()">
+            </section>
+            
+        </main>
+
+        <main id="resultado-final">
+            <section class="visaoCandidatosFinal">
+                <div>
+                    <img src="./res/images/fotosCandidatos/partido1/deodoro-da-fonseca.jpg" alt="Vencedor simulação eleição" class="fotosFinalizar fotoVencedor" id="fotoVencedor">
+                </div>
+                <div>
+                    <p class="dadosVencedor" id="nomeVencedor">Teste</p>
+                    <p style="text-align: left; margin-left: 28px;" id="partidoVencedor">Partido</p>
+                    <p style="text-align: left; margin-left: 28px;" id="percentualVencedor">0%</p>
+                    <div class="container-barraEvolucao">
+                        <div class="barraEvolucao" id="dezV"></div><div class="barraEvolucao" id="vinteV"></div><div class="barraEvolucao" id="trintaV"></div><div class="barraEvolucao" id="quarentaV"></div><div class="barraEvolucao" id="cinquentaV"></div><div class="barraEvolucao" id="sessentaV"></div><div class="barraEvolucao" id="setentaV"></div><div class="barraEvolucao" id="oitentaV"></div><div class="barraEvolucao" id="noventaV"></div><div class="barraEvolucao" id="cemV"></div>
+                    </div>
+                </div>
+                <div class="eleito">
+                    ELEITO
+                </div>
+            </section>
+    
+            <section class="visaoCandidatosFinal">
+                <div>
+                    <img src="./res/images/fotosCandidatos/partido1/deodoro-da-fonseca.jpg" alt="Vencedor simulação eleição" class="fotosFinalizar fotoDerrotado" id="fotoDerrotado">
+                </div>
+                <div>
+                    <p class="dadosDerrotado" id="nomeDerrotado">Teste</p>
+                    <p style="text-align: left; margin-left: 55px;" id="partidoDerrotado">Partido</p>
+                    <p style="text-align: left; margin-left: 55px;" id="percentualDerrotado">0%</p>
+                    <div class="container-barraEvolucao" style="margin-left: 30px;">
+                        <div class="barraEvolucao" id="dezD"></div><div class="barraEvolucao" id="vinteD"></div><div class="barraEvolucao" id="trintaD"></div><div class="barraEvolucao" id="quarentaD"></div><div class="barraEvolucao" id="cinquentaD"></div><div class="barraEvolucao" id="sessentaD"></div><div class="barraEvolucao" id="setentaD"></div><div class="barraEvolucao" id="oitentaD"></div><div class="barraEvolucao" id="noventaD"></div><div class="barraEvolucao" id="cemD"></div>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="BrancosENulosFinal" style="margin-top: 30px;">
+                <p style="text-align: left;">Brancos ou nulos: <span id="percentualBrancosENulos">0%</span></p>
+            </section>
+
+            <a href="./index.html">Iniciar nova votação</a>
+        </main>
+
+        <footer>
+            <p>&copy;Desenvolvido por:<a href="https://www.linkedin.com/in/alex-santos-developer/"><img src="./res/images/logos/logo-full-png.png" alt="Logo Alex Santos" style="width: 130px; border: 1px solid gray; border-radius: 10px; margin-left: 10px;"></a></p>
+        </footer>
+    </div>
+</body>
